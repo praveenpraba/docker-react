@@ -1,0 +1,7 @@
+sudo: required
+services:
+    - docker
+before_install:
+    - docker build -t prawinpraba/docker-react -f Dockerfile.dev .
+script:
+    - docker run -e CI=true prawinpraba/docker-react npm run test -- --coverage
